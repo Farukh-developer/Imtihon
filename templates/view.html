@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+<style>
+    .card-img-top {
+        height: 300px;
+        object-fit: cover;
+    }
+    .scenic-section {
+        margin-top: 2rem;
+    }
+    .scenic-section h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 3rem; /* Adjusted for readability */
+    }
+    .scenic-section .content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    .scenic-section .content .text-section,
+    .scenic-section .content .image-section {
+        flex: 1;
+        min-width: 300px; /* Ensures responsiveness */
+    }
+    .scenic-section p {
+        text-align: justify;
+        padding: 0 1rem;
+        font-size: 1.25rem;
+    }
+    .scenic-section img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+    .service-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .action-link {
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .read-link {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+
+    .read-link:hover {
+        background-color: #45a049;
+    }
+
+    .update-link {
+        background-color: #2196F3; /* Blue */
+        color: white;
+    }
+
+    .update-link:hover {
+        background-color: #1e87db;
+    }
+
+    .delete-link {
+        background-color: #f44336; /* Red */
+        color: white;
+    }
+
+    .delete-link:hover {
+        background-color: #e53935;
+    }
+</style>
+
+
+ <!-- about section start -->
+ <div class="about_section layout_padding">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="about_taital_main">
+               <h1 class="about_taital">{{service.country}}</h1>
+               <p class="about_text">There are many variations of passages of Lorem Ipsum available, but the majority
+                  have suffered alteration in some form, by injected humour, or randomised words which don't look
+                  even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
+                  there isn't anything embarrassing hidden in the middle of text. All </p>
+               <div class="readmore_bt"><a href="#">Read More</a></div>
+               
+            </div>
+            
+         </div>
+         <div class="col-md-6 padding_right_0">
+            <div><img src="{{service.image.url}}" class="about_img"></div>
+            
+         </div>
+
+      </div>
+
+   </div>
+   <div class="service-actions">
+    <a href="{% url 'read' service.id %}" class="action-link read-link">Read</a>
+    <a href="{% url 'update' service.id %}" class="action-link update-link">Update</a>
+    <a href="{% url 'delete' service.id %}" class="action-link delete-link">Remove</a>
+</div> 
+</div>
+{% endblock header %}
