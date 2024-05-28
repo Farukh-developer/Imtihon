@@ -3,7 +3,7 @@ from .views import home, tour, about, view, contact, read, create,  update, dele
 
 
 urlpatterns = [
-   path('home', home, name="home"),
+   path('', home, name="home"),
    path('tour/<int:id>/', tour, name="tour"),
    path('about', about, name="about"),
    path('view/<int:service_id>/', view, name="view"),

@@ -28,7 +28,7 @@ class Service(models.Model):
     
 class Parvoz(models.Model):
     name=models.CharField(max_length=200)
-    image=models.ImageField(upload_to='air_imgae/', null=True)
+    
     def __str__(self):
         return f"{self.name}"
     
